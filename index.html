@@ -53,24 +53,13 @@
             letter-spacing: 1px;
         }
 
-        .logo-icon {
-            width: 50px;
+        .logo-img {
             height: 50px;
-            background: linear-gradient(135deg, #5eead4, #0ea5e9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        .logo-icon::before {
-            content: url('https://github.com/ManolisG11/The-Fox-Project/blob/main/icon.png?raw=true');
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNjUgNDBjLTIgMC00IDItNCA0YTQgNCAwIDAxOCAwYzAtMi0yLTQtNC00em0tMzAgMGMtMiAwLTQgMi00IDRhNCA0IDAgMDE4IDBjMC0yLTItNC00LTR6bTQ1IDMwYzAgNS00IDEwLTEwIDEwcy0xMC01LTEwLTEwYzAtMTAgMTAtMjAgMjAtMjBzMTAgMTAgMTAgMjB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQwIDQ1YzAgMi0yIDQtNCA0cy00LTItNC00YzAtNSAyLTEwIDctMTAgMiAwIDQgMSA1IDJzMiAzIDIgOGMwIDIgMiA0IDQgNHM0LTIgNC00YzAtNS0yLTEwLTctMTAtMiAwLTQgMS01IDJzLTIgMy0yIDh6bTMwIDBjMCAyLTItNC00LTRzLTQgMi00IDRjMCA1IDIgMTAgNyAxMCAyIDAgNC0xIDUtMnMyLTMgMi04YzAtMiAyLTQgNC00czQgMiA0IDRjMCA1LTIgMTAtNyAxMC0yIDAtNC0xLTUtMnMtMi0zLTItOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') center/contain no-repeat;
+        .logo-img:hover {
+            transform: rotate(10deg);
         }
 
         nav {
@@ -267,14 +256,18 @@
 
         .code-block {
             font-family: 'Fira Code', monospace;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             overflow-x: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
         }
 
         .code-line {
             display: block;
             padding: 5px 0;
+            white-space: pre;
         }
 
         .comment {
@@ -329,6 +322,11 @@
             margin-bottom: 25px;
         }
 
+        .paypal-form {
+            margin: 30px auto;
+            max-width: 300px;
+        }
+
         footer {
             padding: 60px 0 30px;
             text-align: center;
@@ -347,23 +345,8 @@
             margin-bottom: 20px;
         }
 
-        .footer-logo-icon {
-            width: 40px;
+        .footer-logo-img {
             height: 40px;
-            background: linear-gradient(135deg, #5eead4, #0ea5e9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .footer-logo-icon::before {
-            content: "";
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNjUgNDBjLTIgMC00IDItNCA0YTQgNCAwIDAxOCAwYzAtMi0yLTQtNC00em0tMzAgMGMtMiAwLTQgMi00IDRhNCA0IDAgMDE4IDBjMC0yLTItNC00LTR6bTQ1IDMwYzAgNS00IDEwLTEwIDEwcy0xMC01LTEwLTEwYzAtMTAgMTAtMjAgMjAtMjBzMTAgMTAgMTAgMjB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQwIDQ1YzAgMi0yIDQtNCA0cy00LTItNC00YzAtNSAyLTEwIDctMTAgMiAwIDQgMSA1IDJzMiAzIDIgOGMwIDIgMiA0IDQgNHM0LTIgNC00YzAtNS0yLTEwLTctMTAtMiAwLTQgMS01IDJzLTIgMy0yIDh6bTMwIDBjMCAyLTItNC00LTRzLTQgMi00IDRjMCA1IDIgMTAgNyAxMCAyIDAgNC0xIDUtMnMyLTMgMi04YzAtMiAyLTQgNC00czQgMiA0IDRjMCA1LTIgMTAtNyAxMC0yIDAtNC0xLTUtMnMtMi0zLTItOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') center/contain no-repeat;
         }
 
         .social-links {
@@ -481,7 +464,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-icon"></div>
+                    <img src="https://github.com/ManolisG11/The-Fox-Project/blob/main/icon.png?raw=true" alt="Fox Logo" class="logo-img">
                     <span>Fox</span>
                 </div>
                 <nav>
@@ -538,22 +521,11 @@
                     <div class="code-lang">Fox 1.0</div>
                 </div>
                 <div class="code-block">
-                    <span class="code-line"><span class="comment"># Create a jumping fox character</span></span>
-                    <span class="code-line"><span class="keyword">character</span> <span class="function">Fox</span> {</span>
-                    <span class="code-line">  <span class="keyword">color</span> = <span class="string">"orange"</span></span>
-                    <span class="code-line">  <span class="keyword">position</span> = [<span class="number">100</span>, <span class="number">200</span>]</span>
-                    <span class="code-line"></span>
-                    <span class="code-line">  <span class="keyword">function</span> <span class="function">jump</span>() {</span>
-                    <span class="code-line">    <span class="keyword">move</span> <span class="number">0</span>, <span class="number">-50</span></span>
-                    <span class="code-line">    <span class="keyword">wait</span> <span class="number">0.5</span></span>
-                    <span class="code-line">    <span class="keyword">move</span> <span class="number">0</span>, <span class="number">50</span></span>
-                    <span class="code-line">  }</span>
-                    <span class="code-line">}</span>
-                    <span class="code-line"></span>
-                    <span class="code-line"><span class="comment"># Make the fox jump when space is pressed</span></span>
-                    <span class="code-line"><span class="keyword">on key</span> <span class="string">"space"</span> {</span>
-                    <span class="code-line">  <span class="function">Fox</span>.<span class="function">jump</span>()</span>
-                    <span class="code-line">}</span>
+                    <span class="code-line"><span class="comment"># Draw a square using repeat</span></span>
+                    <span class="code-line"><span class="keyword">repeat</span> 4</span>
+                    <span class="code-line">  <span class="keyword">forward</span> 100</span>
+                    <span class="code-line">  <span class="keyword">right</span> 90</span>
+                    <span class="code-line"><span class="keyword">endrepeat</span></span>
                 </div>
             </div>
         </div>
@@ -568,8 +540,8 @@
                 <h3>Download for Windows</h3>
                 <p>Get the latest version of Fox and start coding in minutes. Perfect for Windows 10 and 11.</p>
                 
-                <a href="https://github.com/ManolisG11/Fox---Download-Center/releases/download/3.0/FoxInstaller.exe" class="btn btn-primary" style="margin-top: 30px;">
-                    <i class="fas fa-download"></i> Download Installer (v1.2.1)
+                <a href="https://github.com/ManolisG11/Fox---Download-Center/releases/tag/3.0" class="btn btn-primary" style="margin-top: 30px;">
+                    <i class="fas fa-download"></i> Download Installer (v3.0)
                 </a>
                 
                 <div class="content-grid" style="margin-top: 50px;">
@@ -603,11 +575,14 @@
                 <i class="fas fa-heart donate-icon floating"></i>
                 <h3>Help Fox Grow</h3>
                 <p>Your donation helps us improve Fox and bring programming education to more children around the world.</p>
-                <form action="https://www.paypal.com/donate" method="post" target="_top">
-                <input type="hidden" name="hosted_button_id" value="YMMERFNUANPA4" />
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                <img alt="" border="0" src="https://www.paypal.com/en_GR/i/scr/pixel.gif" width="1" height="1" />
-                </form>
+                
+                <div class="paypal-form">
+                    <form action="https://www.paypal.com/donate" method="post" target="_top">
+                        <input type="hidden" name="hosted_button_id" value="YMMERFNUANPA4" />
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" style="width:100%;max-width:250px;height:auto;"/>
+                        <img alt="" border="0" src="https://www.paypal.com/en_GR/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                </div>
                 
                 <div class="content-grid" style="margin-top: 50px;">
                     <div class="feature-card">
@@ -635,7 +610,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <div class="footer-logo-icon"></div>
+                <img src="https://i.ibb.co/7yfVb7R/fox-logo.png" alt="Fox Logo" class="footer-logo-img">
                 <span>Fox</span>
             </div>
             <p>Making coding fun and accessible for the next generation of programmers</p>
