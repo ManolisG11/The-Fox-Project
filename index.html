@@ -3,121 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fox - The Future of Coding for Teens</title>
+    <title>Fox - Fun Coding for Kids</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        :root {
-            --primary: #4e9af1;
-            --primary-dark: #2a6bc4;
-            --secondary: #6c5ce7;
-            --accent: #00cec9;
-            --dark: #121725;
-            --darker: #0d101c;
-            --light: #e0e0e0;
-            --gray: #2d2d2d;
-            --success: #00b894;
-            --warning: #fdcb6e;
-            --danger: #ff7675;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            font-family: 'Exo 2', sans-serif;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--light);
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
             line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
+
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header Styles */
+
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            background: rgba(18, 23, 37, 0.8);
-            border-bottom: 1px solid rgba(78, 154, 241, 0.2);
-        }
-        
-        header.scrolled {
             padding: 15px 0;
-            background: rgba(13, 16, 28, 0.95);
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(94, 234, 212, 0.2);
         }
-        
-        .header-container {
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5eead4;
+            letter-spacing: 1px;
         }
-        
+
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #5eead4, #0ea5e9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .logo-text {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .logo-icon::before {
+            content: url('https://github.com/ManolisG11/The-Fox-Project/blob/main/icon.png?raw=true');
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNjUgNDBjLTIgMC00IDItNCA0YTQgNCAwIDAxOCAwYzAtMi0yLTQtNC00em0tMzAgMGMtMiAwLTQgMi00IDRhNCA0IDAgMDE4IDBjMC0yLTItNC00LTR6bTQ1IDMwYzAgNS00IDEwLTEwIDEwcy0xMC01LTEwLTEwYzAtMTAgMTAtMjAgMjAtMjBzMTAgMTAgMTAgMjB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQwIDQ1YzAgMi0yIDQtNCA0cy00LTItNC00YzAtNSAyLTEwIDctMTAgMiAwIDQgMSA1IDJzMiAzIDIgOGMwIDIgMiA0IDQgNHM0LTIgNC00YzAtNS0yLTEwLTctMTAtMiAwLTQgMS01IDJzLTIgMy0yIDh6bTMwIDBjMCAyLTItNC00LTRzLTQgMi00IDRjMCA1IDIgMTAgNyAxMCAyIDAgNC0xIDUtMnMyLTMgMi04YzAtMiAyLTQgNC00czQgMiA0IDRjMCA1LTIgMTAtNyAxMC0yIDAtNC0xLTUtMnMtMi0zLTItOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') center/contain no-repeat;
         }
-        
-        nav ul {
+
+        nav {
             display: flex;
-            list-style: none;
             gap: 30px;
         }
-        
+
         nav a {
-            color: var(--light);
+            color: #cbd5e1;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 500;
+            padding: 8px 0;
             position: relative;
-            padding: 5px 0;
             transition: all 0.3s ease;
         }
-        
+
+        nav a:hover {
+            color: #5eead4;
+        }
+
         nav a::after {
             content: '';
             position: absolute;
@@ -125,1219 +99,602 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: #5eead4;
             transition: width 0.3s ease;
         }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        
+
         nav a:hover::after {
             width: 100%;
         }
-        
-        .nav-btn {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(78, 154, 241, 0.3);
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 154, 241, 0.5);
-        }
-        
-        /* Hero Section */
+
         .hero {
-            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 100px 20px;
             position: relative;
-            overflow: hidden;
-            padding-top: 100px;
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 650px;
-        }
-        
+
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero h1 span {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            background: linear-gradient(to right, #5eead4, #fbbf24);
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: transparent;
+            max-width: 800px;
+            line-height: 1.2;
         }
-        
+
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            color: rgba(224, 224, 224, 0.9);
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-bottom: 40px;
         }
-        
-        .hero-btns {
+
+        .hero-buttons {
             display: flex;
             gap: 20px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
-        
+
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
+            border-radius: 50px;
             transition: all 0.3s ease;
-            text-align: center;
+            cursor: pointer;
+            border: none;
         }
-        
+
         .btn-primary {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            box-shadow: 0 5px 15px rgba(78, 154, 241, 0.4);
+            background: linear-gradient(to right, #0ea5e9, #5eead4);
+            color: #0f172a;
+            box-shadow: 0 4px 15px rgba(94, 234, 212, 0.3);
         }
-        
+
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(78, 154, 241, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(94, 234, 212, 0.5);
         }
-        
+
         .btn-secondary {
             background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: #5eead4;
+            border: 2px solid #5eead4;
         }
-        
+
         .btn-secondary:hover {
-            background: rgba(78, 154, 241, 0.1);
-            transform: translateY(-5px);
+            background: rgba(94, 234, 212, 0.1);
+            transform: translateY(-3px);
         }
-        
-        .hero-visual {
-            position: absolute;
-            right: -100px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 700px;
-            height: 700px;
-            z-index: 1;
-        }
-        
-        .visual-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(78, 154, 241, 0.15) 0%, rgba(78, 154, 241, 0) 70%);
-            animation: rotate 60s linear infinite;
-        }
-        
-        .code-window {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            height: 350px;
-            background: rgba(13, 16, 28, 0.9);
-            border-radius: 15px;
-            border: 1px solid rgba(78, 154, 241, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-        
-        .window-header {
-            padding: 15px;
-            background: rgba(18, 23, 37, 0.7);
-            border-bottom: 1px solid rgba(78, 154, 241, 0.2);
-            display: flex;
-            gap: 8px;
-        }
-        
-        .window-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .btn-red { background: #ff5f56; }
-        .btn-yellow { background: #ffbd2e; }
-        .btn-green { background: #27c93f; }
-        
-        .window-content {
-            padding: 20px;
-            font-family: 'Consolas', monospace;
-            font-size: 14px;
-            line-height: 1.8;
-            height: calc(100% - 47px);
-            overflow: hidden;
-        }
-        
-        .code-line {
-            color: #4e9af1;
-        }
-        
-        .code-comment {
-            color: #6272a4;
-        }
-        
-        .turtle-canvas-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-        }
-        
-        .turtle-canvas {
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Features Section */
-        .section {
+
+        section {
             padding: 100px 0;
+            position: relative;
         }
-        
+
         .section-title {
             text-align: center;
+            font-size: 2.5rem;
             margin-bottom: 70px;
+            color: #f8fafc;
+            position: relative;
         }
-        
-        .section-title h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #0ea5e9, #5eead4);
+            border-radius: 2px;
         }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: rgba(224, 224, 224, 0.8);
-        }
-        
-        .features-grid {
+
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+            margin-top: 50px;
         }
-        
+
         .feature-card {
-            background: rgba(18, 23, 37, 0.5);
-            border-radius: 20px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 16px;
             padding: 40px 30px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(94, 234, 212, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
-            border: 1px solid rgba(78, 154, 241, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(94, 234, 212, 0.3);
+            box-shadow: 0 12px 40px rgba(94, 234, 212, 0.15);
         }
-        
+
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 30px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: #5eead4;
         }
-        
+
         .feature-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            color: rgba(224, 224, 224, 0.8);
-        }
-        
-        /* Download Section */
-        .download {
-            background: linear-gradient(135deg, rgba(18, 23, 37, 0.8) 0%, rgba(13, 16, 28, 0.9) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .download::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect fill="rgba(78, 154, 241, 0.03)" width="100" height="100"/></svg>');
-            z-index: -1;
-        }
-        
-        .download-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        
-        .download-text {
-            flex: 1;
-        }
-        
-        .download-visual {
-            flex: 1;
-            position: relative;
-            height: 500px;
-        }
-        
-        .download-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .download-option {
-            background: rgba(18, 23, 37, 0.6);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .download-option:hover {
-            transform: translateY(-5px);
-            border: 1px solid rgba(78, 154, 241, 0.3);
-        }
-        
-        .os-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .download-option h3 {
-            margin-bottom: 15px;
-        }
-        
-        /* Examples Section */
-        .examples-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .example-card {
-            background: rgba(18, 23, 37, 0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .example-header {
-            padding: 20px;
-            background: rgba(18, 23, 37, 0.7);
-            border-bottom: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .example-content {
-            display: flex;
-            height: 300px;
-        }
-        
-        .example-code {
-            flex: 1;
-            padding: 20px;
-            background: rgba(13, 16, 28, 0.8);
-            overflow: auto;
-            font-family: 'Consolas', monospace;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        
-        .code-keyword {
-            color: #ff79c6;
-        }
-        
-        .code-comment {
-            color: #6272a4;
-        }
-        
-        .code-string {
-            color: #f1fa8c;
-        }
-        
-        .code-number {
-            color: #bd93f9;
-        }
-        
-        .example-output {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(13, 16, 28, 0.9);
-        }
-        
-        .output-canvas {
-            width: 200px;
-            height: 200px;
-        }
-        
-        /* Donation Section */
-        .donation {
-            background: linear-gradient(135deg, rgba(18, 23, 37, 0.8) 0%, rgba(13, 16, 28, 0.9) 100%);
-            text-align: center;
-        }
-        
-        .donation-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .donation-options {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .donation-card {
-            background: rgba(18, 23, 37, 0.6);
-            border-radius: 15px;
-            padding: 40px 30px;
-            width: 220px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .donation-card:hover {
-            transform: translateY(-10px);
-            border: 1px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(78, 154, 241, 0.2);
-        }
-        
-        .donation-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        
-        .donation-card h3 {
-            margin-bottom: 15px;
-        }
-        
-        .donation-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: var(--primary);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .donation-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-        
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            background: rgba(18, 23, 37, 0.5);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .contact-item {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        
-        .contact-form {
-            background: rgba(18, 23, 37, 0.5);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            background: rgba(13, 16, 28, 0.8);
-            border: 1px solid rgba(78, 154, 241, 0.2);
-            border-radius: 10px;
-            color: var(--light);
-            font-family: 'Exo 2', sans-serif;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(78, 154, 241, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(78, 154, 241, 0.3);
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 154, 241, 0.5);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--darker);
-            padding: 70px 0 30px;
-            border-top: 1px solid rgba(78, 154, 241, 0.1);
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-col h3 {
             font-size: 1.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #f8fafc;
         }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
+
+        .code-showcase {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 60px auto;
+            max-width: 800px;
+            border: 1px solid rgba(94, 234, 212, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(224, 224, 224, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .social-links {
+
+        .code-header {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(94, 234, 212, 0.1);
         }
-        
-        .social-link {
+
+        .code-title {
+            font-size: 1.2rem;
+            color: #5eead4;
+            font-weight: 600;
+        }
+
+        .code-block {
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            display: block;
+            padding: 5px 0;
+        }
+
+        .comment {
+            color: #64748b;
+        }
+
+        .keyword {
+            color: #fbbf24;
+        }
+
+        .function {
+            color: #0ea5e9;
+        }
+
+        .string {
+            color: #5eead4;
+        }
+
+        .number {
+            color: #f87171;
+        }
+
+        .download-section {
+            text-align: center;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 16px;
+            padding: 60px;
+            margin: 0 auto;
+            max-width: 800px;
+            border: 1px solid rgba(94, 234, 212, 0.1);
+        }
+
+        .download-icon {
+            font-size: 4rem;
+            color: #5eead4;
+            margin-bottom: 25px;
+        }
+
+        .donate-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(251, 191, 36, 0.1);
+        }
+
+        .donate-icon {
+            font-size: 4rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(94, 234, 212, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5eead4;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
             width: 40px;
             height: 40px;
+            background: linear-gradient(135deg, #5eead4, #0ea5e9);
             border-radius: 50%;
-            background: rgba(78, 154, 241, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
-            font-size: 18px;
+            position: relative;
+        }
+
+        .footer-logo-icon::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNjUgNDBjLTIgMC00IDItNCA0YTQgNCAwIDAxOCAwYzAtMi0yLTQtNC00em0tMzAgMGMtMiAwLTQgMi00IDRhNCA0IDAgMDE4IDBjMC0yLTItNC00LTR6bTQ1IDMwYzAgNS00IDEwLTEwIDEwcy0xMC01LTEwLTEwYzAtMTAgMTAtMjAgMjAtMjBzMTAgMTAgMTAgMjB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQwIDQ1YzAgMi0yIDQtNCA0cy00LTItNC00YzAtNSAyLTEwIDctMTAgMiAwIDQgMSA1IDJzMiAzIDIgOGMwIDIgMiA0IDQgNHM0LTIgNC00YzAtNS0yLTEwLTctMTAtMiAwLTQgMS01IDJzLTIgMy0yIDh6bTMwIDBjMCAyLTItNC00LTRzLTQgMi00IDRjMCA1IDIgMTAgNyAxMCAyIDAgNC0xIDUtMnMyLTMgMi04YzAtMiAyLTQgNC00czQgMiA0IDRjMCA1LTIgMTAtNyAxMC0yIDAtNC0xLTUtMnMtMi0zLTItOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=') center/contain no-repeat;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(94, 234, 212, 0.1);
+            color: #5eead4;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
         }
-        
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
+
+        .social-links a:hover {
+            background: #5eead4;
+            color: #0f172a;
+            transform: translateY(-5px);
         }
-        
+
         .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(78, 154, 241, 0.1);
-            color: rgba(224, 224, 224, 0.6);
-            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 30px;
+            font-size: 0.9rem;
         }
-        
+
         /* Animations */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(78, 154, 241, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(78, 154, 241, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(78, 154, 241, 0); }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
         }
-        
-        /* Particle Background */
-        #particles-js {
+
+        .pattern {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0;
+            opacity: 0.03;
+            background: 
+                radial-gradient(circle at 10% 20%, #5eead4, transparent 15%),
+                radial-gradient(circle at 90% 80%, #fbbf24, transparent 15%),
+                radial-gradient(circle at 50% 50%, #0ea5e9, transparent 20%);
+            z-index: -1;
         }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .hero-visual {
-                width: 500px;
-                height: 500px;
-                right: -150px;
-            }
-            
-            .download-content {
-                flex-direction: column;
-            }
-            
-            .examples-container,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+
+        .hacker-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
         }
-        
+
         @media (max-width: 768px) {
-            .hero {
-                text-align: center;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .hero-btns {
+            nav {
+                width: 100%;
                 justify-content: center;
             }
             
-            .hero-visual {
-                display: none;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            nav ul {
-                display: none;
+            .hero p {
+                font-size: 1.1rem;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
             }
             
-            .features-grid,
-            .download-options {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .download-section, .donate-section {
+                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+    <div class="pattern"></div>
+    <div class="hacker-effect"></div>
     
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">F</div>
-                <div class="logo-text">FOX</div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Fox</span>
+                </div>
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#download">Download</a>
+                    <a href="#donate">Donate</a>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#download">Download</a></li>
-                    <li><a href="#examples">Examples</a></li>
-                    <li><a href="#donate">Donate</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
     
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>The Future of <span>Coding for Kids</span></h1>
-                <p>A modern programming language designed specifically for kids to learn programming concepts in a fun and engaging way.</p>
-                <div class="hero-btns">
-                    <a href="#download" class="btn btn-primary">Download Now</a>
-                    <a href="#donate" class="btn btn-secondary">Donate</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="visual-bg"></div>
-            <div class="code-window">
-                <div class="window-header">
-                    <div class="window-btn btn-red"></div>
-                    <div class="window-btn btn-yellow"></div>
-                    <div class="window-btn btn-green"></div>
-                </div>
-                <div class="window-content">
-                    <div class="code-line"># Draw a colorful spiral</div>
-                    <div class="code-line">repeat 36 [</div>
-                    <div class="code-line">  setpencolor repcount * 10</div>
-                    <div class="code-line">  forward repcount * 5</div>
-                    <div class="code-line">  right 90</div>
-                    <div class="code-line">]</div>
-                    <div class="code-comment"># Fox makes learning fun!</div>
-                </div>
+            <h1>Coding for Kids Made Fun & Easy</h1>
+            <p>Fox is a custom programming language designed to help kids learn coding fundamentals through playful projects and intuitive syntax. Start your child's coding journey today!</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> Learn More
+                </a>
             </div>
         </div>
     </section>
     
-    <!-- Features Section -->
-    <section class="section" id="features">
+    <section id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>Powerful Features</h2>
-                <p>Fox combines the simplicity of turtle graphics with powerful programming constructs to create the perfect learning environment.</p>
-            </div>
-            <div class="features-grid">
+            <h2 class="section-title">Why Choose Fox?</h2>
+            
+            <div class="content-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Simple Syntax</h3>
-                    <p>English-like commands that are easy to read and write, perfect for beginners learning programming concepts.</p>
+                    <i class="fas fa-child feature-icon floating"></i>
+                    <h3>Kid-Friendly</h3>
+                    <p>Designed with young learners in mind. Simple syntax that makes sense to kids without prior experience.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-turtle"></i>
-                    </div>
-                    <h3>Turtle Graphics</h3>
-                    <p>Visual programming with immediate graphical feedback to help understand coding concepts intuitively.</p>
+                    <i class="fas fa-gamepad feature-icon floating"></i>
+                    <h3>Game-Based Learning</h3>
+                    <p>Kids learn by creating games and animations, making programming concepts engaging and fun.</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sitemap"></i>
-                    </div>
-                    <h3>Structured Programming</h3>
-                    <p>Support for procedures, loops, conditionals, and variables to build complex programs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
+                    <i class="fas fa-lightbulb feature-icon floating"></i>
                     <h3>Creative Expression</h3>
-                    <p>Colorful graphics, animations, and interactive projects to unleash creativity through code.</p>
+                    <p>Encourages creativity by letting kids bring their ideas to life through code.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Educational Focus</h3>
-                    <p>Designed specifically for teenagers with tutorials, examples, and a supportive community.</p>
+            </div>
+            
+            <div class="code-showcase">
+                <div class="code-header">
+                    <div class="code-title">Simple Fox Code Example</div>
+                    <div class="code-lang">Fox 1.0</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="code-block">
+                    <span class="code-line"><span class="comment"># Create a jumping fox character</span></span>
+                    <span class="code-line"><span class="keyword">character</span> <span class="function">Fox</span> {</span>
+                    <span class="code-line">  <span class="keyword">color</span> = <span class="string">"orange"</span></span>
+                    <span class="code-line">  <span class="keyword">position</span> = [<span class="number">100</span>, <span class="number">200</span>]</span>
+                    <span class="code-line"></span>
+                    <span class="code-line">  <span class="keyword">function</span> <span class="function">jump</span>() {</span>
+                    <span class="code-line">    <span class="keyword">move</span> <span class="number">0</span>, <span class="number">-50</span></span>
+                    <span class="code-line">    <span class="keyword">wait</span> <span class="number">0.5</span></span>
+                    <span class="code-line">    <span class="keyword">move</span> <span class="number">0</span>, <span class="number">50</span></span>
+                    <span class="code-line">  }</span>
+                    <span class="code-line">}</span>
+                    <span class="code-line"></span>
+                    <span class="code-line"><span class="comment"># Make the fox jump when space is pressed</span></span>
+                    <span class="code-line"><span class="keyword">on key</span> <span class="string">"space"</span> {</span>
+                    <span class="code-line">  <span class="function">Fox</span>.<span class="function">jump</span>()</span>
+                    <span class="code-line">}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="download">
+        <div class="container">
+            <h2 class="section-title">Get Started with Fox</h2>
+            
+            <div class="download-section">
+                <i class="fas fa-download download-icon floating"></i>
+                <h3>Download for Windows</h3>
+                <p>Get the latest version of Fox and start coding in minutes. Perfect for Windows 10 and 11.</p>
+                
+                <a href="https://github.com/ManolisG11/Fox---Download-Center/releases/download/3.0/FoxInstaller.exe" class="btn btn-primary" style="margin-top: 30px;">
+                    <i class="fas fa-download"></i> Download Installer (v1.2.1)
+                </a>
+                
+                <div class="content-grid" style="margin-top: 50px;">
+                    <div class="feature-card">
                         <i class="fas fa-rocket"></i>
+                        <h3>Quick Setup</h3>
+                        <p>Simple installer gets you started in under a minute</p>
                     </div>
-                    <h3>Future Ready</h3>
-                    <p>Builds foundational skills for more advanced programming languages and computer science concepts.</p>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Learning Guide</h3>
+                        <p>Includes interactive tutorials and examples</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Safe & Secure</h3>
+                        <p>No ads, no tracking, kid-friendly environment</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Download Section -->
-    <section class="section download" id="download">
+    <section id="donate">
         <div class="container">
-            <div class="download-content">
-                <div class="download-text">
-                    <div class="section-title">
-                        <h2>Download Fox</h2>
-                        <p>Get started with Fox today! Available for Windows, macOS, and Linux.</p>
+            <h2 class="section-title">Support Our Mission</h2>
+            
+            <div class="donate-section">
+                <i class="fas fa-heart donate-icon floating"></i>
+                <h3>Help Fox Grow</h3>
+                <p>Your donation helps us improve Fox and bring programming education to more children around the world.</p>
+                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="hosted_button_id" value="YMMERFNUANPA4" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_GR/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+                
+                <div class="content-grid" style="margin-top: 50px;">
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Development</h3>
+                        <p>Fund new features and improvements</p>
                     </div>
-                    <div class="download-options">
-                        <div class="download-option">
-                            <div class="os-icon">
-                                <i class="fab fa-windows"></i>
-                            </div>
-                            <h3>Windows</h3>
-                            <p>64-bit Installer</p>
-                            <a href="#" class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="download-option">
-                            <div class="os-icon">
-                                <i class="fab fa-apple"></i>
-                            </div>
-                            <h3>macOS</h3>
-                            <p>Universal Build</p>
-                            <a href="#" class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="download-option">
-                            <div class="os-icon">
-                                <i class="fab fa-linux"></i>
-                            </div>
-                            <h3>Linux</h3>
-                            <p>.deb & .rpm Packages</p>
-                            <a href="#" class="btn btn-primary">Download</a>
-                        </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Accessibility</h3>
+                        <p>Make Fox available in more languages</p>
                     </div>
-                </div>
-                <div class="download-visual">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <div class="window-btn btn-red"></div>
-                            <div class="window-btn btn-yellow"></div>
-                            <div class="window-btn btn-green"></div>
-                        </div>
-                        <div class="window-content">
-                            <div class="code-line"># Draw a snowflake</div>
-                            <div class="code-line">to snowflake :size</div>
-                            <div class="code-line">  repeat 6 [</div>
-                            <div class="code-line">    branch :size</div>
-                            <div class="code-line">    right 60</div>
-                            <div class="code-line">  ]</div>
-                            <div class="code-line">end</div>
-                            <div class="code-line"></div>
-                            <div class="code-line">to branch :size</div>
-                            <div class="code-line">  forward :size</div>
-                            <div class="code-line">  back :size</div>
-                            <div class="code-line">end</div>
-                        </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-school"></i>
+                        <h3>Education</h3>
+                        <p>Create learning materials for schools</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Examples Section -->
-    <section class="section" id="examples">
-        <div class="container">
-            <div class="section-title">
-                <h2>Code Examples</h2>
-                <p>See what you can create with just a few lines of Fox code.</p>
-            </div>
-            <div class="examples-container">
-                <div class="example-card">
-                    <div class="example-header">
-                        <h3>Drawing a Square</h3>
-                    </div>
-                    <div class="example-content">
-                        <div class="example-code">
-                            <div class="code-line"><span class="code-comment"># Simple square</span></div>
-                            <div class="code-line">forward <span class="code-number">100</span></div>
-                            <div class="code-line">right <span class="code-number">90</span></div>
-                            <div class="code-line">forward <span class="code-number">100</span></div>
-                            <div class="code-line">right <span class="code-number">90</span></div>
-                            <div class="code-line">forward <span class="code-number">100</span></div>
-                            <div class="code-line">right <span class="code-number">90</span></div>
-                            <div class="code-line">forward <span class="code-number">100</span></div>
-                        </div>
-                        <div class="example-output">
-                            <canvas class="output-canvas" id="squareCanvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="example-card">
-                    <div class="example-header">
-                        <h3>Colorful Spiral</h3>
-                    </div>
-                    <div class="example-content">
-                        <div class="example-code">
-                            <div class="code-line"><span class="code-comment"># Colorful spiral pattern</span></div>
-                            <div class="code-line">speed <span class="code-number">10</span></div>
-                            <div class="code-line">repeat <span class="code-number">36</span> [</div>
-                            <div class="code-line">  setpencolor repcount * <span class="code-number">10</span></div>
-                            <div class="code-line">  forward repcount * <span class="code-number">5</span></div>
-                            <div class="code-line">  right <span class="code-number">90</span></div>
-                            <div class="code-line">]</div>
-                        </div>
-                        <div class="example-output">
-                            <canvas class="output-canvas" id="spiralCanvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Donation Section -->
-    <section class="section donation" id="donate">
-        <div class="container">
-            <div class="section-title">
-                <h2>Support Fox</h2>
-                <p>Help us continue developing and improving Fox for future generations of young coders.</p>
-            </div>
-            <div class="donation-content">
-                <p>Fox is free and open-source software. Your donations help cover development costs, create educational resources, and support our community. Every contribution makes a difference!</p>
-                <div class="donation-options">
-                    <div class="donation-card">
-                        <div class="donation-icon">
-                            <i class="fab fa-paypal"></i>
-                        </div>
-                        <h3>PayPal</h3>
-                        <p>One-time or recurring donations</p>
-                        <form action="https://www.paypal.com/donate" method="post" target="_top">
-                        <input type="hidden" name="hosted_button_id" value="YMMERFNUANPA4" />
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                        <img alt="" border="0" src="https://www.paypal.com/en_GR/i/scr/pixel.gif" width="1" height="1" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have questions or feedback? We'd love to hear from you!</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                    </div>
-                    <div class="contact-item">
-                        <div>
-                            <h3>Email</h3>
-                            <p>fox.project@null.net</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Your message"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo">
-                        <div class="logo-icon">F</div>
-                        <div class="logo-text">FOX</div>
-                    </div>
-                    <p>The future of coding for teenagers. Simple, fun, and educational programming language.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#download">Download</a></li>
-                        <li><a href="#examples">Examples</a></li>
-                        <li><a href="#donate">Donate</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                </div>
+            <div class="footer-logo">
+                <div class="footer-logo-icon"></div>
+                <span>Fox</span>
             </div>
+            <p>Making coding fun and accessible for the next generation of programmers</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+            
             <div class="copyright">
-                <p>&copy; 2025 The Fox Project. All rights reserved.</p>
+                &copy; 2023 Fox Programming Language. All rights reserved.
             </div>
         </div>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 80,
                     behavior: 'smooth'
                 });
             });
         });
         
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 }
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
             });
-            alert('Thank you for your message! We\'ll get back to you soon.');
-            this.reset();
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature-card, .code-showcase, .download-section, .donate-section').forEach(el => {
+            observer.observe(el);
         });
         
-        // Initialize particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#4e9af1" },
-                shape: { type: "circle" },
-                opacity: { value: 0.3, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#4e9af1",
-                    opacity: 0.1,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
-                },
-                modes: {
-                    grab: { distance: 140, line_linked: { opacity: 0.5 } },
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-        
-        // Turtle animation
-        function drawTurtleAnimation() {
-            const canvas = document.getElementById('turtleCanvas');
-            const ctx = canvas.getContext('2d');
+        // Add floating effect to download and donate buttons
+        const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.classList.add('floating');
+            });
             
-            // Set canvas size
-            canvas.width = 300;
-            canvas.height = 300;
-            
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            let angle = 0;
-            let radius = 5;
-            let hue = 0;
-            
-            function draw() {
-                // Clear canvas with slight transparency for trail effect
-                ctx.fillStyle = 'rgba(13, 16, 28, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                // Calculate next point
-                angle += 0.05;
-                radius += 0.1;
-                hue = (hue + 1) % 360;
-                
-                const x = centerX + Math.cos(angle) * radius;
-                const y = centerY + Math.sin(angle) * radius;
-                
-                // Draw line
-                ctx.beginPath();
-                ctx.moveTo(centerX, centerY);
-                ctx.lineTo(x, y);
-                ctx.strokeStyle = `hsl(${hue}, 100%, 60%)`;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                // Draw turtle
-                ctx.beginPath();
-                ctx.arc(x, y, 8, 0, Math.PI * 2);
-                ctx.fillStyle = `hsl(${hue}, 100%, 60%)`;
-                ctx.fill();
-                
-                // Reset if too big
-                if (radius > 100) {
-                    radius = 5;
-                    angle += Math.PI / 2;
-                }
-                
-                requestAnimationFrame(draw);
-            }
-            
-            draw();
-        }
-        
-        // Draw square example
-        function drawSquare() {
-            const canvas = document.getElementById('squareCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = 200;
-            canvas.height = 200;
-            
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const size = 80;
-            
-            ctx.translate(centerX, centerY);
-            
-            ctx.strokeStyle = '#4e9af1';
-            ctx.lineWidth = 3;
-            
-            ctx.beginPath();
-            ctx.moveTo(-size/2, -size/2);
-            ctx.lineTo(size/2, -size/2);
-            ctx.lineTo(size/2, size/2);
-            ctx.lineTo(-size/2, size/2);
-            ctx.closePath();
-            ctx.stroke();
-        }
-        
-        // Draw spiral example
-        function drawSpiral() {
-            const canvas = document.getElementById('spiralCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = 200;
-            canvas.height = 200;
-            
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            
-            ctx.translate(centerX, centerY);
-            
-            let radius = 5;
-            let angle = 0;
-            let hue = 0;
-            
-            for (let i = 0; i < 36; i++) {
-                hue = (hue + 10) % 360;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-                
-                if (i === 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
-                
-                angle += Math.PI / 2;
-                radius += 5;
-            }
-            
-            ctx.strokeStyle = `hsl(${hue}, 100%, 60%)`;
-            ctx.lineWidth = 2;
-            ctx.stroke();
-        }
-        
-        // Initialize animations when page loads
-        window.addEventListener('load', function() {
-            drawTurtleAnimation();
-            drawSquare();
-            drawSpiral();
+            btn.addEventListener('mouseleave', () => {
+                btn.classList.remove('floating');
+            });
         });
     </script>
 </body>
