@@ -595,6 +595,161 @@
             font-size: 1rem;
         }
 
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px) rotateY(5deg);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(94, 234, 212, 0.1);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.3rem;
+            color: var(--lighter);
+            margin-bottom: 5px;
+        }
+
+        .contact-text p, .contact-text a {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form-container {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            border: 1px solid rgba(94, 234, 212, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .contact-form-container:hover {
+            transform: translateY(-10px) rotateY(-5deg);
+        }
+
+        .contact-form-container h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--lighter);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(94, 234, 212, 0.2);
+            border-radius: 10px;
+            color: var(--lighter);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(94, 234, 212, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            color: var(--darker);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(94, 234, 212, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(94, 234, 212, 0.6);
+        }
+
         /* Animations */
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
@@ -624,7 +779,7 @@
         }
 
         .pattern {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
@@ -638,7 +793,7 @@
         }
 
         .hacker-effect {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -653,7 +808,7 @@
         }
 
         .particles {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -717,82 +872,6 @@
             width: 100px;
             height: 100px;
             animation-delay: 3s;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            margin-top: 100px;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
-            border-radius: 20px;
-            padding: 40px;
-            position: relative;
-            border: 1px solid rgba(94, 234, 212, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(94, 234, 212, 0.2);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 25px;
-            color: var(--lighter);
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--darker);
-        }
-
-        .author-info h4 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #94a3b8;
-            font-size: 0.9rem;
         }
 
         /* Mobile Menu */
@@ -880,7 +959,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .testimonial-grid {
+            .contact-container {
                 grid-template-columns: 1fr;
             }
         }
@@ -902,7 +981,7 @@
                     <a href="#about">About</a>
                     <a href="#download">Download</a>
                     <a href="#donate">Donate</a>
-                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
                 </nav>
                 <button class="mobile-menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
@@ -1009,49 +1088,6 @@
         </div>
     </section>
     
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Families Say</h2>
-            
-            <div class="testimonials">
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">My 9-year-old went from playing games to creating them! Fox made coding approachable and fun from day one.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">S</div>
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p>Parent of 9-year-old</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">As a teacher, I've struggled to find tools that engage all students. Fox has transformed my classroom!</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">M</div>
-                            <div class="author-info">
-                                <h4>Michael Chen</h4>
-                                <p>Elementary School Teacher</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">I made a dinosaur game with Fox and showed all my friends. Now we're making games together after school!</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">E</div>
-                            <div class="author-info">
-                                <h4>Emma Rodriguez</h4>
-                                <p>Age 10, Fox Coder</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <section id="donate">
         <div class="container">
             <h2 class="section-title">Fuel the Mission</h2>
@@ -1087,6 +1123,86 @@
                         <h3>Education</h3>
                         <p>Create learning materials for schools</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:hello@foxcoding.org">hello@foxcoding.org</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>123 Coding Lane, Tech City, TC 10001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Hours</h4>
+                                <p>Monday-Friday: 9AM - 5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="What is this regarding?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us how we can help..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1147,7 +1263,7 @@
             // Random properties
             const size = Math.random() * 5 + 2;
             const posX = Math.random() * 100;
-            const posY = Math.random() * 100 + 100;
+            const posY = Math.random() * 100;
             const duration = Math.random() * 10 + 5;
             const delay = Math.random() * 5;
             const color = `rgba(${Math.floor(Math.random() * 100 + 155)}, 
@@ -1181,7 +1297,7 @@
             });
         }, observerOptions);
         
-        document.querySelectorAll('.feature-card, .code-showcase, .download-section, .donate-section, .testimonial-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .code-showcase, .download-section, .donate-section, .contact-info, .contact-form-container').forEach(el => {
             observer.observe(el);
         });
         
@@ -1189,6 +1305,22 @@
         const downloadBtn = document.getElementById('downloadBtn');
         downloadBtn.addEventListener('click', () => {
             createConfetti();
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! We've received your message and will contact you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
         });
         
         function createConfetti() {
